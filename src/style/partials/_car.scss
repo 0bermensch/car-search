@@ -1,0 +1,220 @@
+.car {
+  &--title {
+    text-align: center;
+    padding: 20px 20%;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  &__select {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    height: 150px;
+    margin: 10px 0 20px;
+    &--button {
+      width: 70%;
+      margin: 0 15%;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 8px 15px rgba(167, 166, 166, 0.1);
+      transition: all 0.3s ease 0s;
+      &:hover {
+        background-color: gray;
+        transform: translateY(-7px);
+      }
+      &::after {
+        background-color: gray;
+        transform: translateY(-7px);
+      }
+    }
+  }
+  &__search {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    &__form {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: 20px 20% 10px;
+      align-items: center;
+      border-bottom: 1px dotted grey;
+      padding-bottom: 10px;
+      &__container {
+        display: flex;
+        flex-direction: column;
+        &--label {
+          font-size: 12px;
+          font-weight: 700;
+          margin-bottom: 7px;
+        }
+        &--input {
+          margin-bottom: 10px;
+          border: none;
+          border-bottom: 1px solid #ccc;
+          background-color: transparent;
+        }
+      }
+
+      &--button {
+        width: 50%;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        &:hover {
+          background-color: gray;
+        }
+      }
+    }
+    &__output {
+      &--title {
+        border-bottom: 1px dotted grey;
+        font-weight: 700;
+        margin: 0 40%;
+        padding-bottom: 5px;
+        text-align: center;
+      }
+      &__container {
+        &__card {
+          list-style: none;
+          height: 60px;
+          margin: 20px 20%;
+          border-bottom: 1px solid grey;
+          &--name {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 5px;
+          }
+          &--model {
+            font-size: 12px;
+          }
+          &::after {
+            max-height: 0;
+            content: "";
+            position: absolute;
+            width: 100%;
+            background: linear-gradient(to left, #3f87a6, #ebf8e1, #f69d3c);
+            bottom: 0;
+            left: 0;
+            transition: 0.2s;
+          }
+          &:hover {
+            transform: translateY(-3px);
+            &::after {
+              max-height: 5px;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.car__search__loading {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  margin-left: 43%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@include tablet {
+  .car {
+    &--title {
+      font-size: 16px;
+    }
+    &__select {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: center;
+      height: auto;
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+      &--button {
+        height: 80px;
+        width: 200px;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+    &__search {
+      &__form {
+        flex-direction: row;
+        margin: 10px auto 20px;
+        width: 90%;
+        justify-content: space-evenly;
+        &__container {
+          width: 20%;
+        }
+        &--button {
+          width: 20%;
+          height: 30px;
+        }
+      }
+      &__output {
+        margin: 20px 10%;
+        &__container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          &__card {
+            margin: 10px 5px;
+            &--button {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .car {
+    &--title {
+      font-size: 20px;
+    }
+    &__select {
+      display: flex;
+      flex-direction: row;
+    }
+    &__search {
+      &__form {
+        &__container {
+          &--label {
+            font-size: 16px;
+          }
+        }
+        &--button {
+          height: 50px;
+        }
+      }
+      &__output {
+        margin: 20px 15%;
+        &--title {
+          font-size: 20px;
+        }
+        &__container {
+          grid-template-columns: auto auto auto auto;
+          &__card {
+            height: 80px;
+          }
+        }
+      }
+    }
+  }
+}
